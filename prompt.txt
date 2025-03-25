@@ -1,0 +1,7 @@
+Generate a user-friendly and posix-compliant bash script, dedup.sh.  It takes two parameters, and these should be paths to two directories, "keep" and "delete_dups." It's objective is to generate a file in the current directory, delete.sh. (It is crucial that you DO NOT run delete.sh or delete or modify any files other than as specified below).
+
+The program  should generate a timestamp with second precision, and use it to create two text files in the temp directory as needed "com.codesolid.{timestamp}.keep" and "com.codesolid.{timestamp}.delete_dups".  These temp files will contain the output of recursively scanning the respective directories, and each line will contain the following information in the appropriate format and order:
+	* filename[.extension] portion of the file,
+	* the full path and filename of the file
+	* and a checksum of the file's contents
+Once the scanning of both directories is complete, generate the delete.sh script by comparing the filename[.extension] and checksum fields in each file, and, if both match, add a line to delete.sh to delete the file under the delete_dups directory.  
